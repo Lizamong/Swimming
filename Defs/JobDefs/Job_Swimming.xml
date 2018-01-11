@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<JobDefs>
+
+  <!--========= General ============-->
+
+  <JobDef>
+		<defName>LZG_FindTreasure</defName>
+		<driverClass>Swimming.JobDriver_FindTreasure</driverClass>
+		<reportString>finding treasure.</reportString>
+	</JobDef>
+
+</JobDefs>

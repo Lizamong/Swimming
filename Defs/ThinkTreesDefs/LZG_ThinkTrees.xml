@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Meditative -->
+
+  <JoyGiverDef>
+    <defName>LZG_FindTreasure</defName>
+    <giverClass>Swimming.JoyGiver_FindTreasure</giverClass>
+    <baseChance>1.5</baseChance>
+    <jobDef>LZG_FindTreasure</jobDef>
+    <joyKind>Meditative</joyKind>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </JoyGiverDef>
+
+</Defs>
