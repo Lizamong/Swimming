@@ -13,7 +13,7 @@ namespace Swimming
 {
     public class JobDriver_FindTreasure : JobDriver
     {
-        public float Daniel ()
+        public float Daniel()
         {
 
             Need_Rest rest = pawn.needs.rest;
@@ -40,24 +40,34 @@ namespace Swimming
             return 0f;
 
         }
+
+        int AnnoyingOrange = 0;
+        int workmax => (int)(300 * Daniel());
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
+            
 
-            int work = 0;
-            int workmax = (int)(300 * Daniel());
-
-            Toil GOD = Toils_General.Wait(300);
-            GOD.tickAction = delegate
+            Toil God = new Toil();
+            God.initAction = delegate
             {
-                work++;
-                if (work > workmax)
+                AnnoyingOrange = workmax;
+            };
+            God.tickAction = delegate
+            {
+                if (AnnoyingOrange <= 0)
                 {
                     this.ReadyForNextToil();
                 }
+                else
+                {
+                    AnnoyingOrange--;
+                }
             };
-            GOD.WithProgressBar(TargetIndex.A, () => (float)(work / workmax));
-            yield return GOD;
+            God.defaultCompleteMode = ToilCompleteMode.Never;
+            God.WithProgressBar(TargetIndex.A, () => 1f - (float)AnnoyingOrange / workmax);
+            yield return God;
 
             Toil LOL = new Toil();
             LOL.initAction = delegate

@@ -187,7 +187,6 @@ namespace Swimming
         }
         public static bool IsDeep(this TerrainDef BoX)
         {
-
             if (
        BoX == TerrainDefOf.WaterMovingDeep ||
        BoX == TerrainDefOf.WaterOceanDeep ||
@@ -201,18 +200,21 @@ namespace Swimming
         // Verse.PawnRenderer
         public static bool CutoffBody(PawnRenderer __instance,Vector3 rootLoc, Quaternion quat, bool renderBody, Rot4 bodyFacing, Rot4 headFacing, RotDrawMode bodyDrawType, bool portrait, bool headStump)
         {
-            Log.Message()
+           //Log.Message("1");
             Pawn Daniel = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+            //Log.Message("2");
             /////////////////////// Log.Message("Matthew teacher is wearing glassessssssssssssssss");
             if (Daniel != null && Daniel.PositionHeld is IntVec3 vec && vec.IsValid &&
                 vec.GetTerrain(Daniel.MapHeld) is TerrainDef def)
             {
+                //Log.Message("3");
                 try
                 {
                     if (!Find.TickManager.Paused)
                     {
+                        //Log.Message("4");
                         DrowningCheck(Daniel, def); //j,hvkftyjdyfyfytetjyuhfdgtgvhjmb,nkjutvhrtrgtbhnmb,gu,j6yhdtgexwssr 5nhyj6ujhm,k.u,jhbyrhd4t3cy 7m6ki,l;kiu7yr5f43243rghy67ujklu;k'loi;i9hynt7g6rfvdcr4v3fr4tyu6i7kl8;9[p;kujhygtrfew2e45efr6ghbjnmkl,;.lkjnhgvf6cxd45fc6gv7bh8njukm0il,k0mjnhy8gvfr6gyvthyjuk0iujyhtgrvfcet5rgthyjukil,kujyhtgrvfecdwefrgyujnilmky애국가1.동해물과 백두산이 마르고 닳도록 하느님이 보우하 우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세.
-
+                        //Log.Message("5");
                     }
 
                     if (def == TerrainDefOf.WaterDeep ||
@@ -220,7 +222,7 @@ namespace Swimming
                          def == TerrainDefOf.WaterOceanDeep)
                     {
 
-
+                        //Log.Message("6");
 
                         //if(Find.TickManager.TicksGame %60==0&& Find.Worl.)
                         //MoteMaker.MakeWaterSplash(vec.ToVector3(), Daniel.MapHeld, Mathf.Sqrt(Daniel.BodySize) * 2f, 1.5f);
@@ -230,21 +232,25 @@ namespace Swimming
                         if (!__instance.graphics.AllResolved)
                         {
                             __instance.graphics.ResolveAllGraphics();
+                            //Log.Message("7");
                         }
                         Mesh mesh = null;
                         if (renderBody)
                         {
+                            //Log.Message("8");
                             Vector3 loc = rootLoc;
                             loc.y += 0.0046875f;
                             if (bodyDrawType == RotDrawMode.Dessicated && !Daniel.RaceProps.Humanlike && __instance.graphics.dessicatedGraphic != null && !portrait)
                             {
                                 __instance.graphics.dessicatedGraphic.Draw(loc, bodyFacing, Daniel);
+                                //Log.Message("9");
                             }
                             else
                             {
                                 if (Daniel.RaceProps.Humanlike)
                                 {
                                     mesh = MeshPool.humanlikeBodySet.MeshAt(bodyFacing);
+                                    //Log.Message("10");
                                 }
                                 else
                                 {

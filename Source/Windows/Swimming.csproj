@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobGiver_AvoidDrowning.cs" />
     <Compile Include="JobGiver_FindTreasure.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="JobDriver_FindTreasure.cs" />
