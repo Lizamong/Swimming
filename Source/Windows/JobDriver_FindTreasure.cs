@@ -15,7 +15,7 @@ namespace Swimming
     {
         public float Daniel()
         {
-
+                               
             Need_Rest rest = pawn.needs.rest;
             if (rest == null)
             {
@@ -86,6 +86,12 @@ namespace Swimming
             yield return LOL;
 
 
+        }
+
+        public override bool TryMakePreToilReservations()
+        {
+            return true;
+            //throw new NotImplementedException();
         }
     }
 }

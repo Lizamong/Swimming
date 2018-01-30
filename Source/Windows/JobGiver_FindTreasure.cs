@@ -72,10 +72,10 @@ namespace Swimming
                 {
                     return false;
                 }
-                if (pawn.Map.reservationManager.IsReservedByAnyoneWhoseReservationsRespects(c2, pawn))
-                {
-                    return false;
-                }
+                //if (pawn.Map.reservationManager.IsReservedByAnyoneWhoseReservationsRespects(c2, pawn))
+                //{
+                //    return false;
+                //}
 
 
                 if (c2 is IntVec3 vec && vec.IsValid &&
