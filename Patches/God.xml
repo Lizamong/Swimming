@@ -4,7 +4,7 @@
     <success>Always</success>
     <operations>
       <li Class="PatchOperationAdd">
-      <xpath>*/ThinkTreeDef[defname='HumanlikeConstant']/thinkRoot[@Class='ThinkNode_Priority']/subNodes/li[@Class='ThinkNode_ConditionalCanDoCanstantThinkTreeJobNow']/subNodes</xpath>
+      <xpath>/Defs/ThinkTreeDef[defname='HumanlikeConstant']/thinkRoot[@Class='ThinkNode_Priority']/subNodes/li[@Class='ThinkNode_ConditionalCanDoCanstantThinkTreeJobNow']/subNodes</xpath>
       <order>Prepend</order>
       <value>
 <li Class="Swimming.JobGiver_AvoidDrowning"/>
