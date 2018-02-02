@@ -2,15 +2,14 @@
 <Patch>
   <Operation Class="PatchOperationSequence">
     <success>Always</success>
-    <operations>
-      <li Class="PatchOperationAdd">
-      <xpath>/Defs/ThinkTreeDef[defname='HumanlikeConstant']/thinkRoot[@Class='ThinkNode_Priority']/subNodes/li[@Class='ThinkNode_ConditionalCanDoCanstantThinkTreeJobNow']/subNodes</xpath>
-      <order>Prepend</order>
-      <value>
-<li Class="Swimming.JobGiver_AvoidDrowning"/>
-      </value>
-
-      </li>
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThinkTreeDef[defName='HumanlikeConstant']/thinkRoot[@Class='ThinkNode_Priority']/subNodes/li[@Class='ThinkNode_ConditionalCanDoConstantThinkTreeJobNow']/subNodes</xpath>
+          <order>Prepend</order>
+          <value>
+		    <li Class="Swimming.JobGiver_AvoidDrowning"/>
+          </value>
+        </li>
     </operations>
   </Operation>
 
