@@ -51,10 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompProperties_Oxygen.cs" />
     <Compile Include="JobGiver_AvoidDrowning.cs" />
     <Compile Include="JobGiver_FindTreasure.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="JobDriver_FindTreasure.cs" />
+    <Compile Include="OxygenTank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

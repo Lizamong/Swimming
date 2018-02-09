@@ -6,7 +6,7 @@
     <label>Oxygen Tank</label>
     <description>Makes it so you can breathe in water.What a nice item!</description>
     <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/Jacket/Jacket</texPath>
+      <texPath>oxygenTank/oxygenTank</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <costStuffCount>70</costStuffCount>
@@ -39,7 +39,7 @@
         <li>Shoulders</li>
         <li>Arms</li>
       </bodyPartGroups>
-      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Jacket/Jacket</wornGraphicPath>
+      <wornGraphicPath>oxygenTank/oxygenTank</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
