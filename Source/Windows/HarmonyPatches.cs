@@ -164,7 +164,21 @@ namespace Swimming
                 if (level != null)
                 {
                     float math = (20 - level.Value) * 0.00001f;
+                  if (Daniel.inventory.GetDirectlyHeldThings().FirstOrDefault(x => x.TryGetComp<OxygenTank>() !=null )is ThingWithComps myTank)
+                    {
+                        var nope = myTank.TryGetComp<OxygenTank>();
+                        if (nope != null)
+                        {
+                            if (nope.Air > 0)
+                            {
+                                nope.Air--;
+                                return;
+                           
+                            }
+                        }
+                    }
                     HealthUtility.AdjustSeverity(Daniel, HediffDef.Named("LZG_Drowning"), math);
+
 
                 }
             }

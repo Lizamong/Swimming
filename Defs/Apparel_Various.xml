@@ -2,6 +2,11 @@
 <Defs>
 
   <ThingDef ParentName="ApparelMakeableBase">
+    <comps>
+    <li Class = "Swimming.CompProperties_Oxygen">
+      <airMax>180</airMax>
+    </li>
+    </comps>
     <defName>LZG_Air_Tank</defName>
     <label>Oxygen Tank</label>
     <description>Makes it so you can breathe in water.What a nice item!</description>

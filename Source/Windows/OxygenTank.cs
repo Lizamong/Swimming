@@ -7,9 +7,16 @@ using UnityEngine;
 using Verse;
 
 namespace Swimming
-{
+{ 
     class OxygenTank : ThingComp
     {
+        public override string CompInspectStringExtra()
+        {
+            StringBuilder lel = new StringBuilder();
+            lel.Append(base.CompInspectStringExtra());
+            lel.AppendLine("Oxygen "+Air.ToString()+ " / " +airMax.ToString());
+            return lel.ToString();
+        }
         public override void CompTick()
         {
             base.CompTick();
@@ -41,7 +48,7 @@ namespace Swimming
         }
         public void LoseAir()
         {
-
+    
         }
         public CompProperties_Oxygen Props
         {
