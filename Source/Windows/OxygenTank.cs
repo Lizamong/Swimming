@@ -10,6 +10,7 @@ namespace Swimming
 { 
     class OxygenTank : ThingComp
     {
+        bool chopter = false;
         public override string CompInspectStringExtra()
         {
             StringBuilder lel = new StringBuilder();
@@ -19,29 +20,35 @@ namespace Swimming
         }
         public override void CompTick()
         {
+            if (chopter == false)
+            {
+                chopter = true;
+                air = airMax;
+                Log.Message("string");
+            }
             base.CompTick();
             IntVec3 intVec = this.parent.Position;
-            if (intVec is IntVec3 vec && vec.IsValid &&
-                vec.GetTerrain(this.parent.MapHeld) is TerrainDef def &&
-              (def != TerrainDefOf.WaterDeep &&
-                def != TerrainDefOf.WaterMovingDeep &&
-                def != TerrainDefOf.WaterOceanDeep))
-            {
-                LoseAir();
+            //if (intVec is IntVec3 vec && vec.IsValid &&
+            //    vec.GetTerrain(this.parent.MapHeld) is TerrainDef def &&
+            //  (def != TerrainDefOf.WaterDeep &&
+            //    def != TerrainDefOf.WaterMovingDeep &&
+            //    def != TerrainDefOf.WaterOceanDeep))
+            //{
+            //    LoseAir();
 
-            }
-            else
-            {
-                GetAir();
-            }
-                }
+            //}
+            //else
+            //{
+            //    GetAir();
+            //}
+        }
         public void GetAir()
         {
-            if (Find.TickManager.TicksGame % Props.ticksToGain == 0) ;
+            if (Find.TickManager.TicksGame % Props.ticksToGain == 0) 
             {
                 Air++;
             }
-            if (Find.TickManager.TicksGame % Props.ticksToLose == 0) ;
+            if (Find.TickManager.TicksGame % Props.ticksToLose == 0) 
             {
                 Air--;
             }
