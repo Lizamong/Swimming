@@ -10,20 +10,17 @@
     <defName>LZG_Air_Tank</defName>
     <label>Oxygen Tank</label>
     <description>Makes it so you can breathe in water.What a nice item!</description>
+	<tickerType>Normal</tickerType>
     <graphicData>
       <texPath>oxygenTank/oxygenTank</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <costStuffCount>70</costStuffCount>
     <costList>
       <Plasteel>20</Plasteel>
       <Gold>50</Gold>
       <Steel>70</Steel>
     </costList>
-    <stuffCategories>
-      <li>Fabric</li>
-      <li>Leathery</li>
-    </stuffCategories>
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
