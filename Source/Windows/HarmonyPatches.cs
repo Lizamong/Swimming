@@ -159,30 +159,35 @@ namespace Swimming
         {
             if (BoX.IsDeep())
             {
-
                 int? level = Daniel?.skills?.GetSkill(DefDatabase<SkillDef>.GetNamed("Swimming"))?.Level;
                 if (level != null)
                 {
                     float math = (20 - level.Value) * 0.00001f;
-                  if (Daniel.inventory.GetDirectlyHeldThings().FirstOrDefault(x => x.TryGetComp<OxygenTank>() !=null )is ThingWithComps myTank)
+                  if (Daniel.apparel.GetDirectlyHeldThings().FirstOrDefault(x => x.TryGetComp<OxygenTank>() !=null )is ThingWithComps myTank)
                     {
+
                         var nope = myTank.TryGetComp<OxygenTank>();
                         if (nope != null)
                         {
-                            if (nope.Air > 0)
-                            {
-                                nope.Air--;
-                                return;
+                                if (nope.Air > 0)
+                            { 
+                                if (Find.TickManager.TicksGame % 200 == 0)
+                                {
+                                    nope.Air--;
+                                }
+                                    return;
 
-                           
+
+                                }
                             }
                         }
-                    }
                     HealthUtility.AdjustSeverity(Daniel, HediffDef.Named("LZG_Drowning"), math);
 
-
                 }
+
+
             }
+            
             else
             {
                 HealthUtility.AdjustSeverity(Daniel, HediffDef.Named("LZG_Drowning"), -0.001f);
