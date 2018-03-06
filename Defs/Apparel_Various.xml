@@ -38,12 +38,10 @@
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
-        <li>Shoulders</li>
-        <li>Arms</li>
       </bodyPartGroups>
       <wornGraphicPath>oxygenTank/oxygenTank</wornGraphicPath>
       <layers>
-        <li>Shell</li>
+        <li>Belt</li>
       </layers>
       <tags>
         <li>Outlander</li>

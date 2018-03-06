@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alert_OxygenLow.cs" />
     <Compile Include="CompProperties_Oxygen.cs" />
     <Compile Include="JobGiver_AvoidDrowning.cs" />
     <Compile Include="JobGiver_FindTreasure.cs" />

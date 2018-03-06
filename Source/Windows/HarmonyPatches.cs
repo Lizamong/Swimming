@@ -339,6 +339,15 @@ namespace Swimming
                                 GenDraw.DrawMeshNowOrLater(mesh4, loc2, quat, mat, portrait);
                             }
                         }
+                        else
+                        {
+                            Vector3 b = quat * __instance.BaseHeadOffsetAt(headFacing);
+                            Material material = ThingDefOf.Cloth.DrawMatSingle;
+                            if (material != null)
+                            {
+                                Graphics.DrawMesh(mesh, vector, quat,material,0);
+                            }
+                        }
                         if (renderBody)
                         {
                             //for (int k = 0; k < __instance.graphics.apparelGraphics.Count; k++)
