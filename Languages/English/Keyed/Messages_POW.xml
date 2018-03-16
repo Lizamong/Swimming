@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 <LZG_LowOxygen> {0} has {1} oxygen left </LZG_LowOxygen>
-
+<OxygenLevel_Low>Your Colonist's Oxygen Level is Low!</OxygenLevel_Low>
+<LowOxygen>Low Oxygen</LowOxygen>
 </LanguageData>

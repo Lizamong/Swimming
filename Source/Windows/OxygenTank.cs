@@ -10,6 +10,12 @@ namespace Swimming
 { 
     class OxygenTank : ThingComp
     {
+        
+        private void Notify_LowOxywen()
+        {
+            if (Air< 20)
+        Alert_LowOxygen.IHateJellybeans.Add(this.ParentHolder as Pawn);
+    }
         bool chopter = false;
         public override string CompInspectStringExtra()
         {

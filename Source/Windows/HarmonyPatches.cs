@@ -215,7 +215,7 @@ namespace Swimming
                     }
 
                     Mesh mesh = null;
-                    var vector = rootLoc;
+                    Vector3 vector = rootLoc;
                     var a = rootLoc;
                     if (bodyFacing != Rot4.North)
                     {
@@ -277,7 +277,13 @@ namespace Swimming
                         Daniel.inventory.innerContainer.Count > 0)
                     {
                         Graphics.DrawMesh(mesh, vector, quat,
-                            __instance.graphics.packGraphic.MatAt(Daniel.Rotation, null), 0);
+                            __instance.graphics.packGraphic.MatAt(Daniel.Rotation, null), 0);    
+                    }if (!portrait && Daniel.RaceProps.Animal)
+                    {
+                        var req = new MaterialRequest
+                            (ContentFinder<Texture2D>.Get("WaterShadow"));
+                        Graphics.DrawMesh(MeshPool.plane025, vector, quat, MaterialPool.MatFrom(req),0);
+
                     }
 
                     if (portrait) return false;
