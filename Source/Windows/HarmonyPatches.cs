@@ -142,17 +142,12 @@ namespace Swimming
                     ThingWithComps myTank)
                 {
                     var nope = myTank.TryGetComp<OxygenTank>();
-                    if (nope != null)
+                    if (nope?.Air > 0)
                     {
-                        if (nope.Air > 0)
-                        {
-                            if (Find.TickManager.TicksGame % 200 == 0)
-                            {
-                                nope.Air--;
-                            }
+                        if (Find.TickManager.TicksGame % 200 == 0)
+                            nope.Air--;
 
-                            return;
-                        }
+                        return;
                     }
                 }
 
@@ -263,26 +258,22 @@ namespace Swimming
                             GenDraw.DrawMeshNowOrLater(mesh4, loc2, quat, mat, portrait);
                         }
                     }
-                    else
-                    {
-//                        Vector3 b = quat * __instance.BaseHeadOffsetAt(headFacing);
-//                        Material material = TexCommand.Attack;
-//                        if (material != null)
-//                        {
-//                            Graphics.DrawMesh(mesh, vector, quat, material, 0);                            
-//                        }
-                    }
 
                     if (!portrait && Daniel.RaceProps.Animal && Daniel.inventory != null &&
                         Daniel.inventory.innerContainer.Count > 0)
                     {
                         Graphics.DrawMesh(mesh, vector, quat,
                             __instance.graphics.packGraphic.MatAt(Daniel.Rotation, null), 0);    
-                    }if (!portrait && Daniel.RaceProps.Animal)
+                    }
+                    if (!portrait && Daniel.RaceProps.Animal)
                     {
                         var req = new MaterialRequest
                             (ContentFinder<Texture2D>.Get("WaterShadow"));
-                        Graphics.DrawMesh(MeshPool.plane025, vector, quat, MaterialPool.MatFrom(req),0);
+                        Vector3 s = new Vector3(2.0f, 1f, 2.0f);
+                        Matrix4x4 matrix = default(Matrix4x4);
+                        matrix.SetTRS(vector, Quaternion.identity, s);
+                        Graphics.DrawMesh(MeshPool.plane10, matrix, MaterialPool.MatFrom(req), 0);
+                        
 
                     }
 

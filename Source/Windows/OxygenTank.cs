@@ -34,19 +34,6 @@ namespace Swimming
             }
             base.CompTick();
             IntVec3 intVec = this.parent.Position;
-            //if (intVec is IntVec3 vec && vec.IsValid &&
-            //    vec.GetTerrain(this.parent.MapHeld) is TerrainDef def &&
-            //  (def != TerrainDefOf.WaterDeep &&
-            //    def != TerrainDefOf.WaterMovingDeep &&
-            //    def != TerrainDefOf.WaterOceanDeep))
-            //{
-            //    LoseAir();
-
-            //}
-            //else
-            //{
-            //    GetAir();
-            //}
         }
         public void GetAir()
         {

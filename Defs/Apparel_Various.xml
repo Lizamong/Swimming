@@ -9,7 +9,7 @@
     </comps>
     <defName>LZG_Air_Tank</defName>
     <label>Oxygen Tank</label>
-    <description>Makes it so you can breathe in water.What a nice item!</description>
+    <description>Makes it so you can breathe in water. What a nice item!</description>
 	<tickerType>Normal</tickerType>
     <graphicData>
       <texPath>oxygenTank/oxygenTank</texPath>
@@ -17,8 +17,6 @@
 	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <costList>
-      <Plasteel>20</Plasteel>
-      <Gold>50</Gold>
       <Steel>70</Steel>
     </costList>
     <thingCategories>
@@ -27,10 +25,7 @@
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToMake>3600</WorkToMake>
-      <Mass>1.7</Mass>
-      <ArmorRating_Sharp>0.08</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.03</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Mass>2.0</Mass>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.03</MoveSpeed>
@@ -43,40 +38,7 @@
       <layers>
         <li>Belt</li>
       </layers>
-      <tags>
-        <li>Outlander</li>
-        <li>Spacer</li>
-      </tags>
-      <defaultOutfitTags>
-        <li>Worker</li>
-      </defaultOutfitTags>
     </apparel>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.33,0.33,0.33,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.65,0.65,0.65,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.4,0.3,0.15,1)</only>
-        </li>
-        <li>
-          <weight>15</weight>
-          <min>RGBA(0.3,0.3,0.3,1)</min>
-          <max>RGBA(0.5,0.5,0.5,1)</max>
-        </li>
-        <li>
-          <weight>6</weight>
-          <min>RGBA(0.5,0.5,0.5,1)</min>
-          <max>RGBA(1,1,1,1)</max>
-        </li>
-      </options>
-    </colorGenerator>
   </ThingDef>
 
 

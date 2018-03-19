@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Help: XPath Syntax: https://www.w3schools.com/xml/xpath_syntax.asp
+-->
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName='WaterDeep']/passability</xpath>
+				<value>
+					<passability>Standable</passability>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName='WaterOceanDeep']/passability</xpath>
+				<value>
+					<passability>Standable</passability>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName='WaterMovingDeep']/passability</xpath>
+				<value>
+					<passability>Standable</passability>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName='WaterShallow']/passability</xpath>
+				<value>
+					<passability>Standable</passability>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName='WaterOceanShallow']/passability</xpath>
+				<value>
+					<passability>Standable</passability>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName='WaterMovingShallow']/passability</xpath>
+				<value>
+					<passability>Standable</passability>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

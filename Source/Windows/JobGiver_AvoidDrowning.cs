@@ -15,11 +15,11 @@ namespace Swimming
         {
             bool isDrowning = pawn?.health?.hediffSet?.HasHediff(HediffDef.Named("LZG_Drowning")) ?? false;
             bool canDoJobNow = pawn?.CurJob?.def != JobDefOf.Goto &&
-               pawn?.CurJob?.def !=  DefDatabase<JobDef>.GetNamed("LZG_FindTreasure");
-           if (isDrowning && canDoJobNow)
+            pawn?.CurJob?.def !=  DefDatabase<JobDef>.GetNamed("LZG_FindTreasure");
+            if (isDrowning && canDoJobNow)
             {
-               if (Find.TickManager.TicksGame % 60 == 0)
-               {
+               //if (Find.TickManager.TicksGame % 60 == 0)
+               //{
                     IntVec3 White = FindOrangeLand(pawn);
                     if (White.IsValid)
                     {
@@ -27,7 +27,7 @@ namespace Swimming
                         Escape_from_eternal_death.locomotionUrgency = LocomotionUrgency.Sprint;
                         return Escape_from_eternal_death;
                     }
-               }
+               //}
             }
             return null;
         }

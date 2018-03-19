@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="Assembly-CSharp, Version=0.18.6527.37396, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\Dependencies\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
