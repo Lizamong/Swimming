@@ -13,10 +13,11 @@ namespace Swimming
 
         protected override Job TryGiveJob(Pawn pawn)
         {
+            bool ispawnontheLand = pawn?.PositionHeld.GetTerrain(pawn.MapHeld)?.IsDeep() ?? false;
             bool isDrowning = pawn?.health?.hediffSet?.HasHediff(HediffDef.Named("LZG_Drowning")) ?? false;
             bool canDoJobNow = pawn?.CurJob?.def != JobDefOf.Goto &&
             pawn?.CurJob?.def !=  DefDatabase<JobDef>.GetNamed("LZG_FindTreasure");
-            if (isDrowning && canDoJobNow)
+            if (isDrowning && canDoJobNow && ispawnontheLand)
             {
                //if (Find.TickManager.TicksGame % 60 == 0)
                //{

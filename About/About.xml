@@ -4,5 +4,8 @@
   <author>LIZAMONG</author>
 
   <targetVersion>0.18.0</targetVersion>
-  <description>Adds Swimming</description>
+  <description>Adds Swimming.
+  Your colonists can swim!
+  They can also find treasure(Deep water ability).
+  Equip oxygen tanks to avoid drowning.</description>
 </ModMetaData>

@@ -82,10 +82,8 @@ namespace Swimming
                     vec.GetTerrain(pawn.MapHeld) is TerrainDef def &&
                   (def == TerrainDefOf.WaterDeep ||
                     def == TerrainDefOf.WaterMovingDeep ||
-                    def == TerrainDefOf.WaterMovingShallow ||
-                    def == TerrainDefOf.WaterOceanDeep ||
-                    def == TerrainDefOf.WaterOceanShallow ||
-                    def == TerrainDefOf.WaterShallow))
+                    def == TerrainDefOf.WaterOceanDeep 
+                    ))
                 {
                     return true;
 

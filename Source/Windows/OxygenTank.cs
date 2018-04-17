@@ -10,7 +10,6 @@ namespace Swimming
 { 
     class OxygenTank : ThingComp
     {
-        
         private void Notify_LowOxywen()
         {
             if (Air< 20)

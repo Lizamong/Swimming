@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using Harmony;
 using Verse;
@@ -38,8 +39,15 @@ namespace Swimming
                     }),
                 new HarmonyMethod(AccessTools.Method(typeof(HarmonyPatches), nameof(CutoffBody))), null);
 
-
-            harmint.Patch(AccessTools.Method(typeof(ForbidUtility), "IsForbidden",
+            harmint.Patch(AccessTools.Method(typeof(JobGiver_GetRest), "FindGroundSleepSpotFor"), null,
+                new HarmonyMethod(AccessTools.Method(typeof(HarmonyPatches), nameof(escape))), null);
+            harmint.Patch(AccessTools.Method(typeof(Pawn), "SpawnSetup"),
+                new HarmonyMethod(AccessTools.Method(typeof(HarmonyPatches), nameof(chineseearthquake))), null);
+            harmint.Patch(AccessTools.Method(typeof(CharacterCardUtility), "DrawCharacterCard"),
+                new HarmonyMethod(AccessTools.Method(typeof(HarmonyPatches), nameof(lol))), null);
+            harmint.Patch(AccessTools.Method(typeof(Pawn), "Tick"),
+                new HarmonyMethod(AccessTools.Method(typeof(HarmonyPatches), nameof(erbrbrbr))), null);
+             harmint.Patch(AccessTools.Method(typeof(ForbidUtility), "IsForbidden",
                     new Type[] {typeof(IntVec3), typeof(Pawn)}),
                 new HarmonyMethod(AccessTools.Method(typeof(HarmonyPatches), nameof(Forbitten))), null);
             harmint.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), nameof(AddHumanlikeOrders)),
@@ -61,6 +69,28 @@ namespace Swimming
                     def != TerrainDefOf.WaterOceanDeep);
         }
 
+         public static void lol(ref Rect rect, Pawn pawn, Action randomizeCallback)
+         {
+             rect = new Rect(rect.x, rect.y, rect.width, rect.height + 100f);
+         }
+
+        public static void erbrbrbr(Pawn __instance)
+        {
+            
+        }
+// Verse.Pawn
+        public static void chineseearthquake(Pawn __instance, Map map, bool respawningAfterLoad)
+        {
+            if (__instance.skills != null)
+            {
+                var GhostRider = __instance.skills.skills;
+                if (GhostRider.Any(x => x.def.defName == "Swimming")) return;
+                var Thanos = new SkillRecord(__instance, DefDatabase<SkillDef>.GetNamed("Swimming"));
+                Thanos.Level = new IntRange(5, 10).RandomInRange;
+                GhostRider.Add(Thanos);
+            }
+        }
+                        
         /// <summary>
         /// Adds the "Find Treasure" option to the right click menu.
         /// </summary>
@@ -69,8 +99,8 @@ namespace Swimming
             var c = IntVec3.FromVector3(clickPos);
             if (!(c is IntVec3 vec) || !vec.IsValid || !(vec.GetTerrain(pawn.MapHeld) is TerrainDef def) ||
                 (def != TerrainDefOf.WaterDeep && def != TerrainDefOf.WaterMovingDeep &&
-                 def != TerrainDefOf.WaterMovingShallow && def != TerrainDefOf.WaterOceanDeep &&
-                 def != TerrainDefOf.WaterOceanShallow && def != TerrainDefOf.WaterShallow)) return;
+                 def  != TerrainDefOf.WaterOceanDeep 
+                 )) return;
             FloatMenuOption item5;
             var BOX = "Find Treasure";
             if (!pawn.CanReach(c, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn))
@@ -303,6 +333,31 @@ namespace Swimming
             }
 
             return true;
+        }
+
+        private static void escape(Pawn pawn, IntVec3 __result)
+        {
+            Map map = pawn.Map;
+            if (__result.IsValid &&
+                __result.GetTerrain(map).IsDeep() ||
+                __result.GetTerrain(map).IsShallaws())
+            {
+
+                for (int i = 0; i < 2; i++)
+                {
+                    int radius = (i != 0) ? 40 : 10;
+                    IntVec3 result;
+                    if (CellFinder.TryRandomClosewalkCellNear(pawn.Position, map, radius, out result,
+                        (IntVec3 x) => !x.IsForbidden(pawn) && !x.GetTerrain(map).avoidWander &&!x.GetTerrain(map).IsShallaws()
+                                       &&!x.GetTerrain(map).IsDeep()) 
+                        )
+                    {
+                        __result = result;
+                    }
+                }
+
+                __result = CellFinder.RandomClosewalkCellNearNotForbidden(pawn.Position, map, 40, pawn);
+            }
         }
     }
 }
